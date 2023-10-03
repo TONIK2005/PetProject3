@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о записи времени</title>
+</head>
+<body>
+<h1>Информация о записи времени</h1>
+<table>
+    <tr>
+        <th>ID:</th>
+        <td th:text="${timeEntry.id}"></td>
+    </tr>
+    <tr>
+        <th>ID сотрудника:</th>
+        <td th:text="${timeEntry.employee.id}"></td>
+    </tr>
+    <tr>
+        <th>Дата записи:</th>
+        <td th:text="${#dates.format(timeEntry.entryDate, 'yyyy-MM-dd')}"></td>
+    </tr>
+    <tr>
+        <th>Начальное время:</th>
+        <td th:text="${#dates.format(timeEntry.startTime, 'HH:mm')}"></td>
+    </tr>
+    <tr>
+        <th>Конечное время:</th>
+        <td th:text="${#dates.format(timeEntry.endTime, 'HH:mm')}"></td>
+    </tr>
+    <tr>
+        <th>Комментарий:</th>
+        <td th:text="${timeEntry.comment}"></td>
+    </tr>
+    <!-- Добавьте другие поля, если необходимо -->
+</table>
+<a th:href="@{/time-entries}">Вернуться к списку временных записей</a>
+</body>
+</html>

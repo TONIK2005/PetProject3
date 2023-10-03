@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали сотрудника</title>
+</head>
+<body>
+<h1>Детали сотрудника</h1>
+<div th:if="${employee}">
+    <p><strong>ID:</strong> <span th:text="${employee.id}"></span></p>
+    <p><strong>Имя:</strong> <span th:text="${employee.firstName}"></span></p>
+    <p><strong>Фамилия:</strong> <span th:text="${employee.lastName}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${employee.email}"></span></p>
+</div>
+<div th:unless="${employee}">
+    <p>Сотрудник не найден.</p>
+</div>
+<a th:href="@{/employees}">Вернуться к списку сотрудников</a>
+</body>
+</html>

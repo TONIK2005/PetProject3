@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма редактирования записи времени</title>
+</head>
+<body>
+<h1>Форма редактирования записи времени</h1>
+<form action="#" th:action="@{/time-entries/edit/{id}(id=${timeEntry.id})}" th:object="${timeEntry}" method="post">
+    <p>
+        <label for="employeeId">ID сотрудника:</label>
+        <input type="number" id="employeeId" th:field="*{employee}" required>
+    </p>
+    <p>
+        <label for="entryDate">Дата записи:</label>
+        <input type="date" id="entryDate" th:field="*{entryDate}" required>
+    </p>
+    <p>
+        <label for="startTime">Начальное время:</label>
+        <input type="time" id="startTime" th:field="*{startTime}" required>
+    </p>
+    <p>
+        <label for="endTime">Конечное время:</label>
+        <input type="time" id="endTime" th:field="*{endTime}" required>
+    </p>
+    <p>
+        <label for="comment">Комментарий:</label>
+        <input type="text" id="comment" th:field="*{comment}">
+    </p>
+    <!-- Добавьте другие поля, если необходимо -->
+    <p>
+        <button type="submit">Сохранить изменения</button>
+    </p>
+</form>
+<a th:href="@{/time-entries}">Вернуться к списку временных записей</a>
+</body>
+</html>

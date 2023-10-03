@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список временных записей</title>
+</head>
+<body>
+<h1>Список временных записей</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ID сотрудника</th>
+        <th>Дата записи</th>
+        <th>Начальное время</th>
+        <th>Конечное время</th>
+        <th>Комментарий</th>
+        <!-- Другие колонки, если необходимо -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="timeEntry : ${timeEntries}">
+        <td th:text="${timeEntry.id}"></td>
+        <td th:text="${timeEntry.employee.id}"></td>
+        <td th:text="${#dates.format(timeEntry.entryDate, 'yyyy-MM-dd')}"></td>
+        <td th:text="${#dates.format(timeEntry.startTime, 'HH:mm')}"></td>
+        <td th:text="${#dates.format(timeEntry.endTime, 'HH:mm')}"></td>
+        <td th:text="${timeEntry.comment}"></td>
+        <!-- Добавьте другие колонки, если необходимо -->
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/time-entries/create}">Создать новую запись времени</a>
+<a th:href="@{/employees}">Вернуться к списку сотрудников</a>
+</body>
+</html>
+
